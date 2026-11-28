@@ -1,0 +1,22 @@
+project_id = "zemin-senin-pilot"
+[api]
+port = 55321
+schemas = ["public"]
+[db]
+port = 55322
+major_version = 17
+[studio]
+port = 55323
+[inbucket]
+port = 55324
+[auth]
+site_url = "http://localhost:3100"
+enable_signup = false
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+[auth.email.template.magic_link]
+subject = "Zemin Senin giriş kodu"
+content_path = "./supabase/templates/magic-link.html"
+[analytics]
+enabled = false

@@ -1,0 +1,100 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  --paper: #f4f3eb;
+  --surface: #fffcf3;
+  --ink: #22382e;
+  --muted: #4c5e52;
+  --line: #d7ddce;
+  --court: #203b31;
+  --action: #204d37;
+  --tint: #e6edcd;
+  background: var(--paper);
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1180px; margin: auto; padding: 24px clamp(12px, 4vw, 42px) 48px; display: grid; gap: 18px; }
+h1, h2, p, dl, dd { margin: 0; }
+h1 { font-size: clamp(1.5rem, 5vw, 2.4rem); letter-spacing: -.035em; }
+h2 { font-size: 1.16rem; margin-bottom: .1rem; letter-spacing: -.025em; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--court); color: var(--surface); padding: 22px 26px; border-radius: 14px; }
+.brand { color: #dedfa9; margin-bottom: 4px; font-weight: 650; }
+.account, .toolbar, .sectionTop { display: flex; justify-content: space-between; align-items: end; gap: .75rem; flex-wrap: wrap; }
+.toolbar { border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.toolbar label { min-width: min(260px, 100%); }
+.workspace { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.sidebar, .card, .dialogBody { display: grid; gap: 12px; align-content: start; }
+.card { padding: clamp(14px, 2.6vw, 22px); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; min-width: 0; }
+.login { max-width: 420px; width: 100%; }
+label { display: grid; gap: 5px; font-size: .9rem; font-weight: 650; }
+input, select, button { min-height: 44px; border-radius: 8px; font: inherit; padding: 7px 10px; }
+input, select { border: 1px solid #9eae9f; background: var(--surface); color: var(--ink); width: 100%; }
+button { border: 1px solid transparent; background: var(--action); color: #fff; cursor: pointer; font-weight: 700; justify-self: start; }
+button:disabled { opacity: .55; cursor: default; }
+button.secondary, .notice { background: var(--tint); color: var(--court); }
+button:not(:disabled):hover { filter: brightness(.94); }
+:focus-visible { outline: 2px solid #526f47; outline-offset: 3px; }
+.top :focus-visible { outline-color: #dedfa9; }
+.muted { color: var(--muted); font-size: .9rem; }
+.error, .notice { border-radius: 8px; padding: 10px; }
+.error { background: #ffe9e7; color: #8b2828; }
+.calendarCounts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: #eeeee2; border-radius: 8px; }
+.calendarCounts div { padding: 9px 12px; }
+.calendarCounts div + div { border-left: 1px solid var(--line); }
+.calendarCounts dt { font-size: .82rem; color: var(--muted); }
+.calendarCounts dd { font-weight: 750; font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.tableWrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; text-align: left; }
+td, th { border-bottom: 1px solid var(--line); padding: 8px; }
+thead th { font-size: .85rem; color: var(--muted); font-weight: 650; }
+td button { white-space: nowrap; }
+.slotDay { display: block; font-size: .78rem; color: var(--muted); }
+.slotTime { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.published { color: #315639; font-size: .9rem; font-weight: 650; }
+.rowAction { font-size: .86rem; }
+dialog { width: min(calc(100% - 32px), 420px); border: 1px solid var(--line); border-radius: 13px; background: var(--surface); color: var(--ink); padding: 20px; }
+dialog::backdrop { background: #152a24a6; }
+.dialogActions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.visuallyHidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 800px) { .workspace { grid-template-columns: 1fr; } }
+@media (max-width: 520px) {
+  .top { align-items: flex-start; padding: 16px; }
+  .account { justify-content: flex-end; }
+  .calendar td, .calendar th { padding-inline: 4px; }
+}
+
+h1, h2 { text-wrap: balance; }
+input, select, button, .jump { touch-action: manipulation; }
+select {
+  appearance: none;
+  min-width: 0;
+  padding-inline-end: 32px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: right 16px center, right 11px center;
+  background-repeat: no-repeat;
+  background-size: 5px 5px;
+}
+.rowAction { width: 100%; min-width: 4.75rem; }
+.toolbarActions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.jump { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 10px; color: var(--court); font-weight: 700; text-underline-offset: .18em; }
+#add-slot { scroll-margin-top: 20px; }
+dialog { overscroll-behavior: contain; }
+
+.skipLink { position: fixed; top: 8px; left: 8px; z-index: 2; padding: 8px 12px; transform: translateY(-160%); background: var(--surface); color: var(--ink); }
+.skipLink:focus { transform: none; }
+.dateBar { display: grid; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.dateControls { display: flex; flex-wrap: wrap; align-items: end; gap: 7px; }
+.dateControls label { min-width: 9rem; }
+.dayNav { min-width: 44px; font-size: 1.3rem; line-height: 1; }
+.dateShortcuts { display: flex; flex-wrap: wrap; gap: 5px; }
+.dateShortcuts button { font-size: .85rem; padding: 5px 8px; }
+.dateShortcut { background: transparent; color: var(--ink); border-color: var(--line); }
+.dateActive { background: var(--action); color: white; }
+.slotStatus { display: inline-block; border-radius: 5px; font-size: .82rem; font-weight: 700; padding: 3px 7px; }
+.slotOpen { background: var(--tint); color: var(--action); }
+.slotBooked { background: #dce8f0; color: #244355; }
+.slotClosed { background: #ebede6; color: var(--muted); }
+.slotStudent { display: block; color: var(--muted); margin-top: 3px; font-size: .82rem; overflow-wrap: anywhere; }
+.tableAmount { font-variant-numeric: tabular-nums; white-space: nowrap; }
+#reservations { scroll-margin-top: 20px; }
