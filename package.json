@@ -1,0 +1,22 @@
+{
+  "name": "zemin-senin-pilot",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile": "npm run start -w @zemin/mobile --",
+    "staff": "npm run dev -w @zemin/staff --",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "db:start": "node scripts/start-local.mjs",
+    "db:test": "node scripts/test-database.mjs",
+    "db:seed": "node scripts/seed-local.mjs",
+    "db:stop": "supabase stop",
+    "db:test-api": "node scripts/test-api.mjs"
+  },
+  "devDependencies": {
+    "pg": "^8.16.3",
+    "supabase": "2.99.0"
+  }
+}
