@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Zemin Senin",
+    "slug": "zemin-senin-pilot",
+    "scheme": "zeminsenin",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "ios": {"bundleIdentifier": "app.zeminsenin.pilot"},
+    "android": {"package": "app.zeminsenin.pilot"},
+    "web": {"bundler": "metro"},
+    "plugins": ["expo-router", "expo-secure-store"]
+  }
+}
